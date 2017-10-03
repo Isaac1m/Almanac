@@ -1,0 +1,21 @@
+body {
+    background: url('/img/bg2.jpg'); 
+}
+
+.menu-icon{
+    margin-right: 5px;
+}
+
+.btn-space{
+    margin-bottom: 5px;
+}
+
+.nav-item{
+    font-size:18px;
+}
+
+
+.footer-copyright{
+	text-align: center;
+	margin-top: 10px;
+}
