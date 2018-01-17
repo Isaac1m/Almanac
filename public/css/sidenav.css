@@ -12,6 +12,7 @@
     -webkit-border-radius: 4px 0 0 4px; 
     -moz-border-radius: 4px 0 0 4px; 
     border-radius: 4px 0 0 4px; 
+    
 }
 .nav-sidebar .active a { 
     cursor: default;
@@ -39,4 +40,13 @@
     -webkit-border-radius: 0 4px 4px 0; 
     -moz-border-radius: 0 4px 4px 0; 
     border-radius: 0 4px 4px 0; 
+}
+/* .expand-btn{
+    position: relative;
+} */
+
+.faculty-name{
+    font-size: 20px;
+    padding: 2px 5px;
+    
 }

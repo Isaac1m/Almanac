@@ -12,8 +12,13 @@ use App\Department;
 
 use App\Faculty;
 
+use App\Document;
+
 class DepartmentsController extends Controller
 {
+
+
+
     public function create()
     {
         $faculties = Faculty::all();
@@ -31,7 +36,8 @@ class DepartmentsController extends Controller
             'faculty_id' => 'required'
              ));
 
-            if ($validator->fails()) {
+            if ($validator->fails())
+             {
                 return redirect()->route('depts.create')
                             ->withErrors($validator)
                             ->withInput();
@@ -50,9 +56,27 @@ class DepartmentsController extends Controller
     public function show($id)
     {
         $department = Department::find($id);
+        $message = "Do documents in this department";
+        $documents = Document::where('department_id',$id)->paginate(4);
+       
 
-        return view('depts.show')->withDepartment($department);
+        if(count($documents)>0)
+        {
+            return view('depts.show')
+                        ->withDocuments($documents)
+                        ->withDepartment($department);
+        }
+           
+        else
+        {
+            return view('depts.show')
+                    ->withMessage($message)
+                    ->withDepartment($department);
+        }
+
     }
+
+
 
     public function edit($id)
     {
@@ -63,7 +87,10 @@ class DepartmentsController extends Controller
 
         $current = $department->faculty_id;
         
-        return view('depts.edit')->withDepartment($department)->withFaculties($faculties)->withCurrent($current);
+        return view('depts.edit')
+            ->withDepartment($department)
+            ->withFaculties($faculties)
+            ->withCurrent($current);
     }
 
     public function update(Request $request, $id)

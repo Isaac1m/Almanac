@@ -39,6 +39,6 @@
 </div>
 {!! Form::close() !!}
 </div> <!-- end of row -->
-<hr>
+
 
 @endsection

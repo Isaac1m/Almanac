@@ -11,18 +11,20 @@
     <title>Almanac @yield('title')</title>
 
     <!-- Styles -->
+
+    <link href="{!! asset('summernote/dist/summernote.css') !!}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{  asset('css/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}">
-    <link href="{!! asset('summernote/dist/summernote.css') !!}" rel="stylesheet">
+    
     @yield('styles')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top" >
             <div class="container">
                 <div class="navbar-header">
-
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
@@ -91,19 +93,20 @@
         @include('partials._messages')
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{!! asset('summernote/dist/summernote.min.js') !!}"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#summernote').summernote({
-              height:150,
-            });
-        });
-    </script>
-
+    @include('partials._footer')
     @yield('scripts')
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{!! asset('summernote/dist/summernote.min.js') !!}"></script>
+
+<script>
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height:150,
+		});
+	});
+</script>
+<script src="{{ asset('js/parsley.min.js') }}"></script>
+
 </body>
 </html>

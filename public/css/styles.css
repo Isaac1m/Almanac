@@ -1,5 +1,11 @@
 body {
-    background: url('/img/bg2.jpg'); 
+    background-image: url('/img/bg2.jpg');
+    
+}
+.no-decoration a{
+    text-decoration: none;
+    color: #1560BB;
+    font-size: 14px;
 }
 
 .menu-icon{
@@ -14,8 +20,111 @@ body {
     font-size:18px;
 }
 
+footer{
+   margin-bottom: 0px;
+
+
+}
 
 .footer-copyright{
-	text-align: center;
-	margin-top: 10px;
+   
+    color: white;
+	margin-top: 20px;
 }
+
+.footer-copyright a{
+    text-decoration: none;
+    color: #19151C;
+    
+}
+
+.doc-abstract{
+    text-align: justify;
+}
+
+.doc-author{
+    color: #000000;
+}
+.not-found-msg{
+    font-size: 20px;
+}
+.search_res{
+    border-radius:8px;
+}
+
+.jumbtron-form{
+ 
+  margin: 0 auto;
+}
+
+.doc-meta{
+    margin-top: 0px;
+}
+
+.left-meta-item{
+    position: relative;
+    font-size: 18px;
+    left: 20px;
+}
+
+.right-meta-item{
+    right: 20px;
+    position: absolute;
+    border-radius: 8px;
+   
+}
+.slicy-cards{
+    margin: 2px;
+    /* height: 40px; */
+    background-color: #FFFFFF;
+
+}
+.slicy-cards a{
+    text-decoration: none;
+    color: #585C62;
+}
+.slicy-well{
+    margin: 5px;
+    
+} 
+.title{
+    text-align: center;
+    
+}
+.read-more-btn{
+    border-radius: 10px;
+    
+}
+
+.slicy-cards{
+    margin: 5px;
+    box-shadow: 0px 0px 0px #282525;
+}
+.slicy-cards:hover{ 
+ box-shadow: 1px 8px 20px grey;
+transition:  box-shadow .6s ease-in;
+}
+
+.faculty-listing{
+    font-size: 18px;
+}
+.no-decoration{
+    text-decoration: none;
+    color: #320E75;
+}
+.no-decoration:hover{
+    text-decoration: none; 
+}
+dl dt{
+    font-size: 11px;
+    color: #5F9294
+
+}
+dl dt:hover{
+    color:#1560BB;
+}
+.section-header{
+    font-size:12px;
+    color: #19151C;
+}
+

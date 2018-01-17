@@ -10,13 +10,15 @@ use Validator;
 
 use App\Faculty;
 
+use App\Department;
+
 class FacultiesController extends Controller
 {
 
     public function index()
     {
-        $faculties = Faculty::all();
-        return view('faculties.index')->withFaculties($faculties);
+        $faculties = Faculty::paginate(5);
+        return view('faculties.listing')->withFaculties($faculties);
 
     }
 
@@ -29,13 +31,15 @@ class FacultiesController extends Controller
     {
         $faculty = new Faculty;
 
+        
+
         $validator = Validator::make($request->all(), array(
             'name' => 'required | max:255',
             'description' => 'required | min:5'
              ));
 
             if ($validator->fails()) {
-                return redirect("{{ route('faculties.create') }}")
+                return redirect()->route('faculties.create')
                             ->withErrors($validator)
                             ->withInput();
             }
@@ -52,8 +56,26 @@ class FacultiesController extends Controller
     public function show($id)
     {
         $faculty = Faculty::find($id);
+        $message = 'No departments found.';
+        
+        
+        $facultyDepts = Department::where('faculty_id',$id)->paginate(4);
 
-        return view('faculties.show')->withFaculty($faculty);
+
+        if(count($facultyDepts)>0)
+        {
+            return view('faculties.show')
+                        ->withFacultyDepts($facultyDepts)
+                        ->withFaculty($faculty);
+        }
+            
+        else
+        {
+            return view('faculties.show')
+                        ->withMessage($message)
+                        ->withFaculty($faculty);
+                        
+        }
     }
 
     public function edit($id)

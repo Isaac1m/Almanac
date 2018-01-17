@@ -9,11 +9,23 @@
 		{!! Form::model($department, ['route'=> ['depts.update',$department->id], 'method'  => 'PATCH' ]) !!}
 			<div class = "col-md-7 col-md-offset-1 jumbotron" >
 		{{ Form::label('name','Name') }}
-			{{ Form::text('name',null,['class'=>'form-control input-lg']) }}
+			{{ Form::text('name',null,['class'=>'form-control input-lg',
+				'required'=>"",
+				'data-parsley-required-message' => 'Whats the department called?',
+				'data-parsley-trigger'          => 'change focusout',
+				'data-parsley-minlength'        => '10',
+				'data-parsley-maxlength'        => '150'
+			]) }}
 
 
 		{{Form::label('description','Description')}}
-		{{Form::textarea('description',null,['class' => 'form-control', 'id'=>'summernote'])}}
+		{{Form::textarea('description',null,['class' => 'form-control', 'id'=>'summernote',
+		 	'required'=>"",
+			'data-parsley-required-message' => 'Please add a brief description of the department',
+			'data-parsley-trigger'          => 'change focusout',
+			'data-parsley-minlength'        => '100',
+			'data-parsley-minlength-message' =>"Come on! You need to enter at least a 100 character description.."
+		])}}
 	
 		<div class="form-group">
 			<label for="faculty_id" class="col-sm-2 control-label">Faculty</label>
@@ -40,7 +52,7 @@
 
 		<dl class ="dl-horizontal">
 			<dt>Last updated:</dt>
-			<dd>{{date('M j, Y h:ia',strtotime($department->updated_at))}}</dd>
+			<dd>{{ date('M j, Y h:ia',strtotime($department->updated_at)) }}</dd>
 		</dl>
 		<hr>
 		<div class ="row">
